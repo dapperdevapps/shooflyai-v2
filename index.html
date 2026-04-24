@@ -769,6 +769,228 @@ input[type="email"]{transition:border-color .2s,box-shadow .2s;}
 input[type="email"]:focus{outline:none;border-color:#FF4D00;box-shadow:0 0 0 3px rgba(255,77,0,.12);}
 .form-confirm{display:none;color:#FF4D00;font-weight:600;margin-top:12px;font-size:15px;}
 
+
+/* ════════════════════════════════════════════════════════
+   DESIGNER AUDIT OVERHAUL — 2026-04-24
+   Typography · Contrast · Icons · Alignment · Mobile
+   ════════════════════════════════════════════════════════ */
+
+/* ── TYPOGRAPHY SCALE ── */
+body { font-size: 16px !important; line-height: 1.65 !important; }
+p, li { font-size: 1rem !important; line-height: 1.65 !important; }
+.bento-p, .feat-body, .step-body { font-size: 1rem !important; line-height: 1.65 !important; }
+.sh { font-size: clamp(1.75rem, 3.5vw, 2.2rem) !important; line-height: 1.2 !important; }
+h3 { font-size: 1.125rem !important; font-weight: 700 !important; line-height: 1.3 !important; }
+
+/* Stat callouts — punchy */
+.stat-n, .counter-num {
+  font-size: clamp(3rem, 5vw, 4rem) !important;
+  font-weight: 900 !important;
+  letter-spacing: -.03em !important;
+  line-height: 1 !important;
+}
+.stat-label {
+  font-size: .8125rem !important;
+  font-weight: 700 !important;
+  text-transform: uppercase !important;
+  letter-spacing: .12em !important;
+  opacity: .65 !important;
+  margin-top: 6px !important;
+}
+
+/* ── CONTRAST FIXES ── */
+.hero-sub, .section-sub, .lead { color: #444444 !important; }
+.feat-card p, .feat p, .step p { color: #444444 !important; }
+.proof-quote { color: #333333 !important; font-style: italic !important; }
+.proof-attr strong { color: #111111 !important; font-size: .8125rem !important; font-weight: 700 !important; display: block !important; }
+.proof-attr small, .attr-role { color: #666666 !important; font-size: .75rem !important; display: block !important; }
+.price-trial, .price-sub, .price-note { color: #555555 !important; }
+.price-badge { background: #B83500 !important; color: #ffffff !important; }
+
+/* Ghost/outline buttons on light BG */
+.btn-ghost { border: 2px solid #1a1a1a !important; color: #1a1a1a !important; }
+.btn-ghost:hover { border-color: var(--orange) !important; color: var(--orange) !important; }
+.btn-outline-lg { border: 2px solid #1a1a1a !important; color: #1a1a1a !important; }
+.btn-outline-lg:hover { border-color: var(--orange) !important; color: var(--orange) !important; }
+
+/* Ticker contrast */
+.marquee-wrap { background: #18140F !important; }
+.marquee-track span { color: #FFFFFF !important; font-weight: 600 !important; }
+.marquee-track .dot { color: var(--orange) !important; }
+
+/* Footer text contrast */
+.footer-col a { color: rgba(255,255,255,.70) !important; }
+.footer-col h4 { color: rgba(255,255,255,.50) !important; }
+.footer-brand p { color: rgba(255,255,255,.55) !important; }
+.footer-bottom { color: rgba(255,255,255,.40) !important; }
+
+/* ── ICON WRAPPERS ── */
+.feat-icon {
+  width: 48px !important;
+  height: 48px !important;
+  min-width: 48px !important;
+  border-radius: 12px !important;
+  background: rgba(255,77,0,.10) !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  margin-bottom: 16px !important;
+}
+.feat-icon svg { width: 22px !important; height: 22px !important; display: block !important; }
+
+.step-num {
+  width: 52px !important;
+  height: 52px !important;
+  border-radius: 50% !important;
+  background: var(--orange) !important;
+  color: #fff !important;
+  font-size: 1.1rem !important;
+  font-weight: 800 !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  margin: 0 auto 18px !important;
+  box-shadow: 0 4px 16px rgba(255,77,0,.30) !important;
+  border: none !important;
+}
+
+/* ── ALIGNMENT ── */
+.hero { text-align: center !important; }
+.hero-left { text-align: center !important; }
+.hero-actions { justify-content: center !important; display: flex !important; flex-wrap: wrap !important; gap: 12px !important; }
+.hero-trust { justify-content: center !important; display: flex !important; flex-wrap: wrap !important; }
+.store-btns { justify-content: center !important; display: flex !important; flex-wrap: wrap !important; gap: 12px !important; }
+.avatars { justify-content: center !important; display: flex !important; }
+
+/* Feature cards — left-align */
+.feat { text-align: left !important; align-items: flex-start !important; display: flex !important; flex-direction: column !important; }
+.feat-grid { display: grid !important; grid-template-columns: repeat(3, 1fr) !important; gap: 24px !important; }
+@media(max-width:1024px){ .feat-grid { grid-template-columns: 1fr 1fr !important; } }
+@media(max-width:640px){ .feat-grid { grid-template-columns: 1fr !important; } }
+
+/* Pricing equal-height, pinned CTA */
+.price-grid { display: grid !important; grid-template-columns: repeat(3, 1fr) !important; align-items: stretch !important; gap: 24px !important; }
+.price-card { display: flex !important; flex-direction: column !important; }
+.price-features { flex: 1 !important; }
+.price-cta { margin-top: auto !important; padding-top: 20px !important; }
+.price-card .btn { min-height: 48px !important; width: 100% !important; display: flex !important; align-items: center !important; justify-content: center !important; }
+@media(max-width:1024px){ .price-grid { grid-template-columns: 1fr !important; max-width: 440px !important; margin-left: auto !important; margin-right: auto !important; } }
+
+/* Footer top-align columns */
+.footer-top { align-items: flex-start !important; }
+.footer-col h4 { font-size: .7rem !important; font-weight: 700 !important; letter-spacing: .12em !important; text-transform: uppercase !important; margin-bottom: 18px !important; }
+.footer-col a { font-size: .875rem !important; line-height: 2 !important; display: block !important; }
+
+/* Testimonials single col mobile */
+@media(max-width:768px){ .proof-grid { grid-template-columns: 1fr !important; } }
+
+/* ── HAMBURGER / MOBILE NAV ── */
+.nav-hamburger {
+  background: none !important;
+  border: none !important;
+  cursor: pointer !important;
+  padding: 10px !important;
+  min-width: 44px !important;
+  min-height: 44px !important;
+  display: none;
+  align-items: center !important;
+  justify-content: center !important;
+  border-radius: 8px !important;
+  transition: background .2s !important;
+  color: var(--ink) !important;
+}
+.nav-hamburger:hover { background: rgba(0,0,0,.06) !important; }
+.nav-hamburger:focus-visible { outline: 2px solid var(--orange) !important; outline-offset: 2px !important; }
+.nav-hamburger svg { display: block !important; flex-shrink: 0 !important; }
+@media(max-width:1024px){ .nav-hamburger { display: flex !important; } }
+
+/* Mobile nav drawer */
+.mobile-nav {
+  position: fixed !important;
+  inset: 0 !important;
+  z-index: 300 !important;
+  display: none !important;
+}
+.mobile-nav.is-open {
+  display: flex !important;
+  flex-direction: column !important;
+}
+.mobile-nav::before {
+  content: '' !important;
+  position: absolute !important;
+  inset: 0 !important;
+  background: rgba(0,0,0,.60) !important;
+  backdrop-filter: blur(4px) !important;
+}
+.mobile-nav-inner {
+  position: relative !important;
+  z-index: 1 !important;
+  background: #1A1714 !important;
+  width: 100% !important;
+  padding: 24px 28px 40px !important;
+}
+.mobile-nav-header {
+  display: flex !important;
+  justify-content: space-between !important;
+  align-items: center !important;
+  margin-bottom: 28px !important;
+}
+.mobile-nav-brand {
+  font-family: 'Instrument Serif', serif !important;
+  font-size: 1.25rem !important;
+  color: #fff !important;
+}
+.mobile-nav-brand b { color: var(--orange) !important; font-style: italic !important; font-weight: 400 !important; }
+.mobile-nav-close-btn {
+  background: none !important;
+  border: none !important;
+  cursor: pointer !important;
+  min-width: 44px !important;
+  min-height: 44px !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  border-radius: 8px !important;
+  color: #fff !important;
+  transition: background .2s !important;
+}
+.mobile-nav-close-btn:hover { background: rgba(255,255,255,.10) !important; }
+.mobile-nav-close-btn svg { width: 22px !important; height: 22px !important; stroke: #fff !important; }
+.mobile-nav-link {
+  display: block !important;
+  font-size: 1.25rem !important;
+  font-weight: 700 !important;
+  color: rgba(255,255,255,.82) !important;
+  padding: 16px 0 !important;
+  border-bottom: 1px solid rgba(255,255,255,.08) !important;
+  min-height: 56px !important;
+  display: flex !important;
+  align-items: center !important;
+  transition: color .2s !important;
+}
+.mobile-nav-link:hover { color: var(--orange) !important; }
+.mobile-nav-cta {
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  margin-top: 28px !important;
+  min-height: 52px !important;
+  font-size: 1rem !important;
+  border-radius: var(--r-btn) !important;
+}
+
+/* Touch targets */
+.store-btn { min-height: 44px !important; }
+.btn-primary, .btn-ghost { min-height: 44px !important; }
+nav a { display: inline-flex !important; align-items: center !important; min-height: 44px !important; }
+
+/* Hero BG gradient — more visible */
+.hero::before { opacity: .18 !important; }
+
+/* Marquee accessibility */
+@media(prefers-reduced-motion: reduce){ .marquee-track { animation-play-state: paused !important; } }
+@media(max-width:640px){ .marquee-track { animation-duration: 45s !important; } }
+
 </style>
 </head>
 <body>
@@ -786,13 +1008,26 @@ input[type="email"]:focus{outline:none;border-color:#FF4D00;box-shadow:0 0 0 3px
     <a href="#pricing" class="btn btn-primary">Start Free Trial</a>
   </div>
 
-  <button class="nav-hamburger" aria-label="Open menu" aria-expanded="false"><span></span><span></span><span></span></button>
+  <button class="nav-hamburger" id="menuBtn" aria-label="Open menu" aria-expanded="false" aria-controls="mobileNav">
+    <svg id="hamburger-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" width="22" height="22"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+    <svg id="close-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" width="22" height="22" style="display:none"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+  </button>
 </nav>
-<div class="mobile-nav" id="mobileNav" aria-hidden="true">
-  <a href="#how" class="mobile-nav-link">How It Works</a>
-  <a href="#features" class="mobile-nav-link">Features</a>
-  <a href="#pricing" class="mobile-nav-link">Pricing</a>
-  <a href="#waitlist" class="mobile-nav-cta btn-primary">Get Early Access</a>
+<div class="mobile-nav" id="mobileNav" role="dialog" aria-modal="true" aria-label="Navigation menu" aria-hidden="true">
+  <div class="mobile-nav-inner">
+    <div class="mobile-nav-header">
+      <span class="mobile-nav-brand">Learn<b>Then</b>Scroll</span>
+      <button class="mobile-nav-close-btn" id="mobileNavClose" aria-label="Close menu">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" width="22" height="22"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+      </button>
+    </div>
+    <nav class="mobile-nav-links">
+      <a href="#how" class="mobile-nav-link">How It Works</a>
+      <a href="#features" class="mobile-nav-link">Features</a>
+      <a href="#pricing" class="mobile-nav-link">Pricing</a>
+    </nav>
+    <a href="#waitlist" class="btn btn-primary mobile-nav-cta">Get Early Access</a>
+  </div>
 </div>
 
 <!-- HERO -->
@@ -981,11 +1216,11 @@ input[type="email"]:focus{outline:none;border-color:#FF4D00;box-shadow:0 0 0 3px
         <div class="counter-label">at just 2 minutes a day</div>
       </div>
       <div class="timeline" id="compound-timeline">
-        <div class="timeline-item"><div class="timeline-left"><div class="timeline-dot"></div><div class="timeline-line"></div></div><div><div class="timeline-period">Day 1</div><div class="timeline-body"><div class="timeline-heading">You learn one thing.</div><div class="timeline-text">One concept. Two minutes. Compound interest, how DNS works, why antibiotics fail on viruses — your pick. You open your feed. Nothing changes except you know one more thing than yesterday.</div><div class="timeline-chips"><span class="t-chip"><span class="t-chip-dot"></span>2 min invested</span><span class="t-chip"><span class="t-chip-dot"></span>1 lesson earned</span></div></div></div></div>
-        <div class="timeline-item"><div class="timeline-left"><div class="timeline-dot"></div><div class="timeline-line"></div></div><div><div class="timeline-period">Week 1</div><div class="timeline-body"><div class="timeline-heading">The habit loop clicks.</div><div class="timeline-text">UCL research shows new habits form in ~66 days — but the reward loop activates much sooner. By day 7 your brain starts <em>expecting</em> the lesson before it gets the scroll. That&#39;s the gate becoming a ritual.</div><div class="timeline-chips"><span class="t-chip"><span class="t-chip-dot"></span>7 lessons</span><span class="t-chip"><span class="t-chip-dot"></span>14 min total</span><span class="t-chip"><span class="t-chip-dot"></span>Habit loop forming</span></div></div></div></div>
-        <div class="timeline-item"><div class="timeline-left"><div class="timeline-dot"></div><div class="timeline-line"></div></div><div><div class="timeline-period">Month 1</div><div class="timeline-body"><div class="timeline-heading">30 things you actually remember.</div><div class="timeline-text">Microlearning delivers <strong>17% better knowledge retention</strong> than traditional instruction (Journal of Applied Psychology). Short daily bursts beat hour-long sessions once a week — every single time. That&#39;s not motivation, that&#39;s neuroscience.</div><div class="timeline-chips"><span class="t-chip"><span class="t-chip-dot"></span>30 lessons</span><span class="t-chip"><span class="t-chip-dot"></span>17% better retention</span><span class="t-chip"><span class="t-chip-dot"></span>1 hr total</span></div></div></div></div>
-        <div class="timeline-item"><div class="timeline-left"><div class="timeline-dot"></div><div class="timeline-line"></div></div><div><div class="timeline-period">Month 3</div><div class="timeline-body"><div class="timeline-heading">You&#39;re the person who just <em>knows things.</em></div><div class="timeline-text">90 distinct concepts across your chosen topics. At dinner you mention why the placebo effect is still real even when you know it&#39;s a placebo. In a meeting you reference the Pareto Principle without Googling it first.</div><div class="timeline-chips"><span class="t-chip"><span class="t-chip-dot"></span>90 lessons</span><span class="t-chip"><span class="t-chip-dot"></span>3 hrs total</span><span class="t-chip"><span class="t-chip-dot"></span>Vocabulary noticeably broader</span></div></div></div></div>
-        <div class="timeline-item"><div class="timeline-left"><div class="timeline-dot"></div></div><div><div class="timeline-period">Year 1</div><div class="timeline-body"><div class="timeline-heading">365 things learned. 12 hours invested.</div><div class="timeline-text">Less than a single Netflix binge weekend. The average American reads 4 books a year at ~6 hrs each — you just matched that pace with 2 minutes a day. <strong>The compound effect is real.</strong> The only variable is whether you start.</div><div class="timeline-chips"><span class="t-chip"><span class="t-chip-dot"></span>365 lessons</span><span class="t-chip"><span class="t-chip-dot"></span>12 hrs total</span><span class="t-chip"><span class="t-chip-dot"></span>Equivalent to 3 books</span><span class="t-chip"><span class="t-chip-dot"></span>Still compounding</span></div></div></div></div>
+        <div class="timeline-item"><div class="timeline-left"><div class="timeline-dot"></div><div class="timeline-line"></div></div><div><div class="timeline-period">Day 1</div><div class="timeline-body"><div class="timeline-heading">You learn one thing.</div><div class="timeline-text">One concept. Two minutes. Compound interest, how DNS works, why antibiotics fail on viruses — your pick. You open your feed. Nothing changes except you know one more thing than yesterday.</div><div class="timeline-chips"><span class="t-chip"><span class="t-chip-dot" aria-hidden="true"></span>2 min invested</span><span class="t-chip"><span class="t-chip-dot" aria-hidden="true"></span>1 lesson earned</span></div></div></div></div>
+        <div class="timeline-item"><div class="timeline-left"><div class="timeline-dot"></div><div class="timeline-line"></div></div><div><div class="timeline-period">Week 1</div><div class="timeline-body"><div class="timeline-heading">The habit loop clicks.</div><div class="timeline-text">UCL research shows new habits form in ~66 days — but the reward loop activates much sooner. By day 7 your brain starts <em>expecting</em> the lesson before it gets the scroll. That&#39;s the gate becoming a ritual.</div><div class="timeline-chips"><span class="t-chip"><span class="t-chip-dot" aria-hidden="true"></span>7 lessons</span><span class="t-chip"><span class="t-chip-dot" aria-hidden="true"></span>14 min total</span><span class="t-chip"><span class="t-chip-dot" aria-hidden="true"></span>Habit loop forming</span></div></div></div></div>
+        <div class="timeline-item"><div class="timeline-left"><div class="timeline-dot"></div><div class="timeline-line"></div></div><div><div class="timeline-period">Month 1</div><div class="timeline-body"><div class="timeline-heading">30 things you actually remember.</div><div class="timeline-text">Microlearning delivers <strong>17% better knowledge retention</strong> than traditional instruction (Journal of Applied Psychology). Short daily bursts beat hour-long sessions once a week — every single time. That&#39;s not motivation, that&#39;s neuroscience.</div><div class="timeline-chips"><span class="t-chip"><span class="t-chip-dot" aria-hidden="true"></span>30 lessons</span><span class="t-chip"><span class="t-chip-dot" aria-hidden="true"></span>17% better retention</span><span class="t-chip"><span class="t-chip-dot" aria-hidden="true"></span>1 hr total</span></div></div></div></div>
+        <div class="timeline-item"><div class="timeline-left"><div class="timeline-dot"></div><div class="timeline-line"></div></div><div><div class="timeline-period">Month 3</div><div class="timeline-body"><div class="timeline-heading">You&#39;re the person who just <em>knows things.</em></div><div class="timeline-text">90 distinct concepts across your chosen topics. At dinner you mention why the placebo effect is still real even when you know it&#39;s a placebo. In a meeting you reference the Pareto Principle without Googling it first.</div><div class="timeline-chips"><span class="t-chip"><span class="t-chip-dot" aria-hidden="true"></span>90 lessons</span><span class="t-chip"><span class="t-chip-dot" aria-hidden="true"></span>3 hrs total</span><span class="t-chip"><span class="t-chip-dot" aria-hidden="true"></span>Vocabulary noticeably broader</span></div></div></div></div>
+        <div class="timeline-item"><div class="timeline-left"><div class="timeline-dot"></div></div><div><div class="timeline-period">Year 1</div><div class="timeline-body"><div class="timeline-heading">365 things learned. 12 hours invested.</div><div class="timeline-text">Less than a single Netflix binge weekend. The average American reads 4 books a year at ~6 hrs each — you just matched that pace with 2 minutes a day. <strong>The compound effect is real.</strong> The only variable is whether you start.</div><div class="timeline-chips"><span class="t-chip"><span class="t-chip-dot" aria-hidden="true"></span>365 lessons</span><span class="t-chip"><span class="t-chip-dot" aria-hidden="true"></span>12 hrs total</span><span class="t-chip"><span class="t-chip-dot" aria-hidden="true"></span>Equivalent to 3 books</span><span class="t-chip"><span class="t-chip-dot" aria-hidden="true"></span>Still compounding</span></div></div></div></div>
       </div>
     </div>
     <div class="compound-right fade-up d2">
@@ -1039,12 +1274,12 @@ input[type="email"]:focus{outline:none;border-color:#FF4D00;box-shadow:0 0 0 3px
       <p class="lead center">Built around the habit you already have — just with a plot twist.</p>
     </div>
     <div class="feat-grid fade-up d1">
-      <div class="feat"><div class="feat-icon">🎯</div><h3>Personalized Topics</h3><p>20+ subject categories. Your lesson feed adapts to your interests — not a generic curriculum.</p></div>
-      <div class="feat"><div class="feat-icon">⚡</div><h3>Shorter Than A TikTok</h3><p>Dense, fast, and worth quoting at dinner. Built for attention spans shaped by the scroll — not a 200-page textbook.</p></div>
-      <div class="feat"><div class="feat-icon">🔥</div><h3>Streak Tracking</h3><p>The same itch as a Duolingo streak — except you'll actually sound smarter at parties.</p></div>
-      <div class="feat"><div class="feat-icon">📱</div><h3>App Integrations</h3><p>Earn access to Instagram, TikTok, Twitter and more — directly inside the LearnThenScroll app.</p></div>
-      <div class="feat"><div class="feat-icon">📊</div><h3>Learning Progress</h3><p>Track every lesson, every category, and how many hours of real knowledge you've built over time.</p></div>
-      <div class="feat"><div class="feat-icon">🌐</div><h3>Offline Mode</h3><p>Pre-loaded lessons work without wifi. Complete your daily lesson anywhere and unlock your feed when you land.</p></div>
+      <div class="feat"><div class="feat-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="var(--orange)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" width="22" height="22"><circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="6"/><circle cx="12" cy="12" r="2"/></svg></div><h3>Personalized Topics</h3><p>20+ subject categories. Your lesson feed adapts to your interests — not a generic curriculum.</p></div>
+      <div class="feat"><div class="feat-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="var(--orange)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" width="22" height="22"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg></div><h3>Shorter Than A TikTok</h3><p>Dense, fast, and worth quoting at dinner. Built for attention spans shaped by the scroll — not a 200-page textbook.</p></div>
+      <div class="feat"><div class="feat-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="var(--orange)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" width="22" height="22"><path d="M8.5 14.5A2.5 2.5 0 0 0 11 12c0-1.38-.5-2-1-3-1.072-2.143-.224-4.054 2-6 .5 2.5 2 4.9 4 6.5 2 1.6 3 3.5 3 5.5a7 7 0 1 1-14 0c0-1.153.433-2.294 1-3a2.5 2.5 0 0 0 2.5 2.5z"/></svg></div><h3>Streak Tracking</h3><p>The same itch as a Duolingo streak — except you'll actually sound smarter at parties.</p></div>
+      <div class="feat"><div class="feat-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="var(--orange)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" width="22" height="22"><rect x="5" y="2" width="14" height="20" rx="2" ry="2"/><line x1="12" y1="18" x2="12.01" y2="18"/></svg></div><h3>App Integrations</h3><p>Earn access to Instagram, TikTok, Twitter and more — directly inside the LearnThenScroll app.</p></div>
+      <div class="feat"><div class="feat-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="var(--orange)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" width="22" height="22"><line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/><line x1="6" y1="20" x2="6" y2="14"/></svg></div><h3>Learning Progress</h3><p>Track every lesson, every category, and how many hours of real knowledge you've built over time.</p></div>
+      <div class="feat"><div class="feat-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="var(--orange)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" width="22" height="22"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg></div><h3>Offline Mode</h3><p>Pre-loaded lessons work without wifi. Complete your daily lesson anywhere and unlock your feed when you land.</p></div>
     </div>
   </div>
 </section>
@@ -1295,24 +1530,52 @@ window.addEventListener('scroll', () => {
 })();
 
 
-  // ── HAMBURGER NAV ──
+  // ── HAMBURGER NAV (SVG open/close states) ──
   (function(){
-    var burger=document.querySelector('.nav-hamburger');
-    var nav=document.getElementById('mobileNav');
-    if(!burger||!nav)return;
-    burger.addEventListener('click',function(){
-      var o=burger.classList.toggle('open');
-      nav.classList.toggle('open',o);
-      burger.setAttribute('aria-expanded',o);
-      nav.setAttribute('aria-hidden',!o);
-      document.body.style.overflow=o?'hidden':'';
+    var burger = document.getElementById('menuBtn');
+    var nav = document.getElementById('mobileNav');
+    var hamIcon = document.getElementById('hamburger-icon');
+    var closeIcon = document.getElementById('close-icon');
+    if(!burger || !nav) return;
+
+    function openNav(){
+      nav.classList.add('is-open');
+      burger.setAttribute('aria-expanded', 'true');
+      nav.setAttribute('aria-hidden', 'false');
+      document.body.style.overflow = 'hidden';
+      if(hamIcon) hamIcon.style.display = 'none';
+      if(closeIcon) closeIcon.style.display = 'block';
+    }
+    function closeNav(){
+      nav.classList.remove('is-open');
+      burger.setAttribute('aria-expanded', 'false');
+      nav.setAttribute('aria-hidden', 'true');
+      document.body.style.overflow = '';
+      if(hamIcon) hamIcon.style.display = 'block';
+      if(closeIcon) closeIcon.style.display = 'none';
+    }
+
+    burger.addEventListener('click', function(){
+      nav.classList.contains('is-open') ? closeNav() : openNav();
     });
-    nav.querySelectorAll('a').forEach(function(l){
-      l.addEventListener('click',function(){
-        burger.classList.remove('open');nav.classList.remove('open');
-        burger.setAttribute('aria-expanded','false');nav.setAttribute('aria-hidden','true');
-        document.body.style.overflow='';
-      });
+
+    // Close via X button
+    var closeBtn = document.getElementById('mobileNavClose');
+    if(closeBtn) closeBtn.addEventListener('click', closeNav);
+
+    // Close on link click
+    nav.querySelectorAll('a, .mobile-nav-link').forEach(function(l){
+      l.addEventListener('click', closeNav);
+    });
+
+    // Close on overlay click
+    nav.addEventListener('click', function(e){
+      if(e.target === nav) closeNav();
+    });
+
+    // Close on Escape key
+    document.addEventListener('keydown', function(e){
+      if(e.key === 'Escape' && nav.classList.contains('is-open')) closeNav();
     });
   })();
 
