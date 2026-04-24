@@ -888,6 +888,7 @@ input[type="email"]:focus{outline:none;border-color:#FF4D00;box-shadow:0 0 0 3px
 </div>
 
 <!-- PROBLEM -->
+<main role="main">
 <section class="section problem" id="problem">
   <div class="container">
     <div class="problem-grid">
@@ -1201,6 +1202,7 @@ input[type="email"]:focus{outline:none;border-color:#FF4D00;box-shadow:0 0 0 3px
 </section>
 
 <!-- FOOTER -->
+</main>
 <footer class="footer">
   <div class="footer-inner">
     <div class="footer-top">
@@ -1350,6 +1352,33 @@ window.addEventListener('scroll', () => {
     if(inp)inp.addEventListener('input',function(){inp.style.borderColor='';});
   })();
 
+
+  // Animated stat counters
+  (function() {
+    var cObserver = new IntersectionObserver(function(entries) {
+      entries.forEach(function(entry) {
+        if (!entry.isIntersecting) return;
+        var el = entry.target;
+        var end = parseInt(el.dataset.count, 10);
+        var suffix = el.dataset.suffix || '';
+        var duration = 1400;
+        var t0 = performance.now();
+        function tick(now) {
+          var p = Math.min((now - t0) / duration, 1);
+          var eased = 1 - Math.pow(1 - p, 3);
+          var val = Math.floor(eased * end);
+          el.textContent = val >= 1000 ? (val/1000).toFixed(1).replace(/\.0$/,'') + 'k' + suffix : val + suffix;
+          if (p < 1) { requestAnimationFrame(tick); }
+          else { el.textContent = end >= 1000 ? (end/1000).toFixed(1).replace(/\.0$/,'') + 'k' + suffix : end + suffix; }
+        }
+        requestAnimationFrame(tick);
+        cObserver.unobserve(el);
+      });
+    }, { threshold: 0.5 });
+    document.querySelectorAll('.stat-n[data-count]').forEach(function(el) {
+      cObserver.observe(el);
+    });
+  })();
 </script>
 
 <!-- Production-ready: 13 fixes applied per design audit 2026-04-24 -->
