@@ -155,6 +155,24 @@
 
     /* Selection */
     ::selection { background: rgba(127,255,212,0.3); color: #f4f9fa; }
+      /* ── Mobile Responsive ─────────────────────────── */
+    @media (max-width: 768px) {
+      /* Navbar: hide desktop links + CTA, show hamburger */
+      .nav-cta-desktop { display: none !important; }
+      .nav-hamburger { display: flex !important; }
+      /* Reduce navbar padding */
+      nav[style] { padding: 0 20px !important; }
+      /* Ticker: reduce font size */
+      .ticker-item { font-size: 14px; gap: 8px; }
+      .ticker-wrap { padding: 20px 0; }
+      /* Section dividers */
+      .section-divider { margin: 0 20px; }
+    }
+    @media (min-width: 769px) {
+      /* Desktop: always show links, hide hamburger */
+      .nav-hamburger { display: none !important; }
+    }
+
   </style>
 </head>
 <body>
